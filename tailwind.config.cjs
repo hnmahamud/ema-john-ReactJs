@@ -26,6 +26,7 @@ module.exports = {
       colors: {
         clifford: '#da373d',
         headerBg: '#1C2B35',
+        cartBg: '#FF99004D',
       },
     },
   },
