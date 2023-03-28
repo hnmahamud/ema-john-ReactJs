@@ -10,9 +10,13 @@ const Shop = () => {
 
   useEffect(() => {
     const loadProducts = async () => {
-      const response = await axios.get('/public/products.json');
-      const { data } = response;
-      setProducts(data);
+      try {
+        const response = await axios.get('products.json');
+        const { data } = response;
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
     };
     loadProducts();
   }, []);
