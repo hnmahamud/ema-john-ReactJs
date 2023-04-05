@@ -34,7 +34,7 @@ const Order = () => {
       </div>
 
       {/* Cart Container */}
-      <div className="col-span-3 order-first md:order-last">
+      <div className="md:col-span-3 order-first md:order-last">
         <Cart cart={savedCart} handleClearCart={handleClearCart}>
 
           <Link to="/checkout">

@@ -6,8 +6,8 @@ const ReviewItem = ({ product, handleRemoveFromCart }) => {
   return (
     <div className="border rounded-md p-2">
       <div className="flex items-center gap-4">
-        <div className="hidden md:block">
-          <img className="w-20 h-20 rounded-md" src={img} alt="" />
+        <div>
+          <img className="w-6 h-6 md:w-20 md:h-20 rounded-md" src={img} alt="" />
         </div>
 
         <div className="grow">
@@ -16,7 +16,7 @@ const ReviewItem = ({ product, handleRemoveFromCart }) => {
           <p>Quantity: <span className="text-orange-400">{quantity}</span></p>
         </div>
 
-        <div className="pl-8 pr-2">
+        <div>
           <button onClick={() => handleRemoveFromCart(id)} className="bg-red-200 hover:bg-red-300 rounded-full p-2">
             <TrashIcon className="h-6 w-6 text-red-500 hover:text-red-600" />
           </button>
