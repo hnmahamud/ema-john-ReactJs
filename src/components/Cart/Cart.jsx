@@ -15,11 +15,11 @@ const Cart = ({ cart }) => {
   const grandTotal = totalPrice + totalShipping + tax;
 
   return (
-    <div>
+    <div className="bg-cartBg md:sticky md:top-16 rounded-md p-4">
       <div className="my-8">
         <h3 className="text-2xl font-normal text-center">Order Summary</h3>
       </div>
-      <div className="space-y-5">
+      <div className="space-y-5 mb-8">
         <p>Selected items: {totalItem}</p>
         <p>Total Price: ${totalPrice}</p>
         <p>Total Shipping Charge: ${totalShipping}</p>

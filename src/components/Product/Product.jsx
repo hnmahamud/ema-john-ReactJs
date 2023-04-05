@@ -5,9 +5,9 @@ import React from 'react';
 const Product = ({ product, handleAddToCart }) => {
   const { img, name, price, seller, ratings } = product;
   return (
-    <div className="bg-base-100 border rounded-md relative">
+    <div className="bg-base-100 border rounded-md flex flex-col">
       <div className="p-2">
-        <img className="w-full h-64 rounded-md" src={img || ''} alt="" />
+        <img className=" rounded-md" src={img || ''} alt="" />
       </div>
       <div className="p-4">
         <div className="mb-3">
@@ -19,7 +19,7 @@ const Product = ({ product, handleAddToCart }) => {
           <p>Rating : {ratings} Stars</p>
         </div>
       </div>
-      <div className="w-full absolute bottom-0">
+      <div className="w-full mt-auto">
         <button onClick={() => handleAddToCart(product)} type="button" className="w-[100%] text-black bg-addCartBtnBg hover:bg-orange-300 border-0 p-2 rounded-b-md"><span className="mr-2">Add to cart</span> <FontAwesomeIcon icon={faCartShopping} /></button>
       </div>
     </div>

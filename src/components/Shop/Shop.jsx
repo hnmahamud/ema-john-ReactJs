@@ -51,19 +51,17 @@ const Shop = () => {
   };
 
   return (
-    <div className="grid grid-cols-5">
+    <div className="grid md:grid-cols-7 gap-4 md:mt-8">
       {/* Products Container */}
-      <div className="col-span-4 w-[90%] mx-auto">
-        <div className="grid grid-cols-3 gap-4 mt-16">
+      <div className="md:col-span-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((product) => <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />)}
         </div>
       </div>
 
       {/* Cart Container */}
-      <div className="bg-cartBg col-span-1">
-        <div className="w-[80%] mx-auto sticky top-0">
-          <Cart cart={cart} />
-        </div>
+      <div className="md:col-span-2 order-first md:order-last">
+        <Cart cart={cart} />
       </div>
     </div>
   );

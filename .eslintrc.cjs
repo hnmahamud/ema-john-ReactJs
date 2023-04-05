@@ -43,5 +43,11 @@ module.exports = {
     'no-restricted-syntax': 0,
     'guard-for-in': 0,
     'no-param-reassign': 0,
+    'jsx-a11y/anchor-is-valid': 0,
+    'react/button-has-type': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/no-noninteractive-tabindex': 0,
+    'jsx-a11y/label-has-associated-control': 0,
   },
 };
