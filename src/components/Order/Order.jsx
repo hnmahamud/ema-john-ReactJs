@@ -1,6 +1,7 @@
+import { CreditCardIcon } from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { removeFromDb } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
@@ -12,6 +13,11 @@ const Order = () => {
     const remainingCart = savedCart.filter((item) => item.id !== id);
     setSavedCart(remainingCart);
     removeFromDb(id);
+  };
+
+  const handleClearCart = () => {
+    setSavedCart([]);
+    deleteShoppingCart();
   };
 
   return (
@@ -29,7 +35,18 @@ const Order = () => {
 
       {/* Cart Container */}
       <div className="col-span-3 order-first md:order-last">
-        <Cart cart={savedCart} />
+        <Cart cart={savedCart} handleClearCart={handleClearCart}>
+
+          <Link to="/checkout">
+            <button className="w-full text-white transition-colors duration-200 bg-orange-500 hover:bg-orange-600 rounded-md mt-2">
+              <div className="flex justify-between p-2">
+                <span>Proceed Checkout</span>
+                <CreditCardIcon className="h-6 w-6" />
+              </div>
+            </button>
+          </Link>
+
+        </Cart>
       </div>
     </div>
   );

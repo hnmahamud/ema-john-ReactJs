@@ -1,6 +1,8 @@
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { addToDb } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
+import { addToDb, deleteShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 
@@ -50,6 +52,11 @@ const Shop = () => {
     addToDb(product.id);
   };
 
+  const handleClearCart = () => {
+    setCart([]);
+    deleteShoppingCart();
+  };
+
   return (
     <div className="grid md:grid-cols-7 gap-4 md:mt-8">
       {/* Products Container */}
@@ -61,7 +68,18 @@ const Shop = () => {
 
       {/* Cart Container */}
       <div className="md:col-span-2 order-first md:order-last">
-        <Cart cart={cart} />
+        <Cart cart={cart} handleClearCart={handleClearCart}>
+
+          <Link to="/order">
+            <button className="w-full text-white transition-colors duration-200 bg-orange-500 hover:bg-orange-600 rounded-md mt-2">
+              <div className="flex justify-between p-2">
+                <span>Review Order</span>
+                <ArrowRightIcon className="h-6 w-6" />
+              </div>
+            </button>
+          </Link>
+
+        </Cart>
       </div>
     </div>
   );
