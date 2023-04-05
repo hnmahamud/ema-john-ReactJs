@@ -1,9 +1,8 @@
 import { TrashIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 
-const ReviewItem = ({ product }) => {
-  console.log(product);
-  const { img, name, price, quantity } = product;
+const ReviewItem = ({ product, handleRemoveFromCart }) => {
+  const { id, img, name, price, quantity } = product;
   return (
     <div className="border rounded-md p-2">
       <div className="flex items-center gap-4">
@@ -18,8 +17,8 @@ const ReviewItem = ({ product }) => {
         </div>
 
         <div className="pl-8 pr-2">
-          <button className="bg-red-200 rounded-full p-2">
-            <TrashIcon className="h-6 w-6 text-red-500" />
+          <button onClick={() => handleRemoveFromCart(id)} className="bg-red-200 hover:bg-red-300 rounded-full p-2">
+            <TrashIcon className="h-6 w-6 text-red-500 hover:text-red-600" />
           </button>
         </div>
       </div>
