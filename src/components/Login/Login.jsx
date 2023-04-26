@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -8,6 +8,11 @@ const Login = () => {
   // Context API
   const { loading, setLoading, loginUser, googleSignIn, passwordReset } =
     useContext(AuthContext);
+
+  // Use location and navigate for get the pathname where user wanted to go.
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.pathname || "/";
 
   // State
   const [err, setErr] = useState("");
@@ -81,6 +86,9 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+
+        // Navigate to user target path
+        navigate(from, { replace: true });
 
         setErr("");
         event.target.reset();
@@ -308,6 +316,7 @@ const Login = () => {
                 <Link
                   to="/register"
                   className="font-medium text-primary-600 hover:underline"
+                  state={from}
                 >
                   Sign up
                 </Link>

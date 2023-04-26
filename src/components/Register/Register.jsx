@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -12,6 +12,11 @@ const Register = () => {
   // Context API
   const { loading, setLoading, createUser, profileUpdate, verificationEmail } =
     useContext(AuthContext);
+
+  // Use location and navigate for get the pathname where user wanted to go.
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state || "/";
 
   // State
   const [err, setErr] = useState("");
@@ -87,6 +92,9 @@ const Register = () => {
         setErr("");
         event.target.reset();
         setIsNotChecked(true);
+
+        // Navigate to user target path
+        navigate(from, { replace: true });
 
         toast("Successfully registered!", {
           position: toast.POSITION.TOP_CENTER,

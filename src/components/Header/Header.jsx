@@ -5,8 +5,10 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { toast } from "react-toastify";
 
 const Header = () => {
+  // Context API
   const { user, logout } = useContext(AuthContext);
 
+  // Logout handler
   const logoutHandler = () => {
     logout()
       .then(() => {
