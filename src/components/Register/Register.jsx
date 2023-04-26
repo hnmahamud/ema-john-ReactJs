@@ -10,7 +10,7 @@ const photo =
 
 const Register = () => {
   // Context API
-  const { createUser, profileUpdate, verificationEmail, loading, setLoading } =
+  const { loading, setLoading, createUser, profileUpdate, verificationEmail } =
     useContext(AuthContext);
 
   // State
