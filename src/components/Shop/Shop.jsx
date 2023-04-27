@@ -1,10 +1,10 @@
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { addToDb, deleteShoppingCart } from '../../utilities/fakedb';
-import Cart from '../Cart/Cart';
-import Product from '../Product/Product';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { addToDb, deleteShoppingCart } from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
+import Product from "../Product/Product";
+import { FaArrowRight } from "react-icons/fa";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +13,7 @@ const Shop = () => {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const response = await axios.get('products.json');
+        const response = await axios.get("products.json");
         const { data } = response;
         setProducts(data);
       } catch (error) {
@@ -26,7 +26,7 @@ const Shop = () => {
   useEffect(() => {
     if (products.length > 0) {
       const newCart = [];
-      const storedCart = JSON.parse(localStorage.getItem('shopping-cart'));
+      const storedCart = JSON.parse(localStorage.getItem("shopping-cart"));
       for (const id in storedCart) {
         const foundProduct = products.find((pd) => id === pd.id);
         const cartItemQuantity = storedCart[id];
@@ -62,23 +62,27 @@ const Shop = () => {
       {/* Products Container */}
       <div className="md:col-span-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {products.map((product) => <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />)}
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
+          ))}
         </div>
       </div>
 
       {/* Cart Container */}
       <div className="md:col-span-2 order-first md:order-last">
         <Cart cart={cart} handleClearCart={handleClearCart}>
-
           <Link to="/order">
             <button className="w-full text-white transition-colors duration-200 bg-orange-500 hover:bg-orange-600 rounded-md mt-2">
               <div className="flex justify-between p-2">
                 <span>Review Order</span>
-                <ArrowRightIcon className="h-6 w-6" />
+                <FaArrowRight className="h-6 w-6" />
               </div>
             </button>
           </Link>
-
         </Cart>
       </div>
     </div>

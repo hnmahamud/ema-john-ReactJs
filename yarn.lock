@@ -624,11 +624,6 @@
     "protobufjs" "^7.0.0"
     "yargs" "^16.2.0"
 
-"@heroicons/react@^2.0.17":
-  "integrity" "sha512-90GMZktkA53YbNzHp6asVEDevUQCMtxWH+2UK2S8OpnLEu7qckTJPhNxNQG52xIR1WFTwFqtH6bt7a60ZNcLLA=="
-  "resolved" "https://registry.npmjs.org/@heroicons/react/-/react-2.0.17.tgz"
-  "version" "2.0.17"
-
 "@jridgewell/gen-mapping@^0.1.0":
   "integrity" "sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w=="
   "resolved" "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -1628,7 +1623,7 @@
   dependencies:
     "clsx" "^1.1.1"
 
-"react@*", "react@^18.2.0", "react@>= 16", "react@>=16", "react@>=16.8":
+"react@*", "react@^18.2.0", "react@>=16", "react@>=16.8":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

@@ -1,5 +1,5 @@
-import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { FaCartPlus } from "react-icons/fa";
 
 const Product = ({ product, handleAddToCart }) => {
   const { img, name, price, seller, ratings } = product;
@@ -26,7 +26,7 @@ const Product = ({ product, handleAddToCart }) => {
         >
           <div className="flex justify-center">
             <span className="mr-2">Add to cart</span>
-            <ShoppingCartIcon className="h-6 w-6" />
+            <FaCartPlus className="h-6 w-6" />
           </div>
         </button>
       </div>
