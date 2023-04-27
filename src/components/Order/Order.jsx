@@ -4,18 +4,27 @@ import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import { FaCreditCard } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Order = () => {
   const cart = useLoaderData();
   const [savedCart, setSavedCart] = useState(cart);
 
   const handleRemoveFromCart = (id) => {
+    toast("Item delete Successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
     const remainingCart = savedCart.filter((item) => item.id !== id);
     setSavedCart(remainingCart);
     removeFromDb(id);
   };
 
   const handleClearCart = () => {
+    toast("All item delete Successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
     setSavedCart([]);
     deleteShoppingCart();
   };

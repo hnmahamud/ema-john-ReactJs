@@ -5,6 +5,7 @@ import { addToDb, deleteShoppingCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import { FaArrowRight } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -38,6 +39,10 @@ const Shop = () => {
   }, [products]);
 
   const handleAddToCart = (product) => {
+    toast("Product added Successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
     let newCart = [];
     const isExist = cart.find((pd) => pd.id === product.id);
     if (isExist) {
@@ -53,6 +58,10 @@ const Shop = () => {
   };
 
   const handleClearCart = () => {
+    toast("All item delete Successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+
     setCart([]);
     deleteShoppingCart();
   };
