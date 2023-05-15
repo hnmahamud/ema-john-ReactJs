@@ -23,6 +23,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Shop />,
+        loader: () =>
+          fetch("https://ema-john-server-xi.vercel.app/totalProducts"),
       },
       {
         path: "/order",

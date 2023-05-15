@@ -15,7 +15,7 @@ const Order = () => {
       position: toast.POSITION.TOP_CENTER,
     });
 
-    const remainingCart = savedCart.filter((item) => item.id !== id);
+    const remainingCart = savedCart.filter((item) => item._id !== id);
     setSavedCart(remainingCart);
     removeFromDb(id);
   };
@@ -35,7 +35,7 @@ const Order = () => {
       <div className="md:col-span-5 flex flex-col gap-4 my-4 md:my-0">
         {savedCart.map((product) => (
           <ReviewItem
-            key={product.id}
+            key={product._id}
             product={product}
             handleRemoveFromCart={handleRemoveFromCart}
           />

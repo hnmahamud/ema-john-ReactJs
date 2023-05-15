@@ -2,7 +2,7 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 
 const ReviewItem = ({ product, handleRemoveFromCart }) => {
-  const { id, img, name, price, quantity } = product;
+  const { _id, img, name, price, quantity } = product;
   return (
     <div className="border rounded-md p-2">
       <div className="flex items-center gap-4">
@@ -26,7 +26,7 @@ const ReviewItem = ({ product, handleRemoveFromCart }) => {
 
         <div>
           <button
-            onClick={() => handleRemoveFromCart(id)}
+            onClick={() => handleRemoveFromCart(_id)}
             className="bg-red-200 hover:bg-red-300 rounded-full p-2"
           >
             <FaTrashAlt className="h-6 w-6 text-red-500 hover:text-red-600" />
